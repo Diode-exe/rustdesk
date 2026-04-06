@@ -158,7 +158,7 @@ def make_parser():
 # it assumes all build dependencies are installed in environments
 # Note: do not use it in bare metal, or may break build environments
 def generate_build_script_for_docker():
-    with open("/tmp/build.sh", "w") as f:
+    with open("/tmp/build.sh", "w", encoding='utf-8') as f:
         f.write('''
             #!/bin/bash
             # environment
@@ -304,7 +304,7 @@ Recommends: libayatana-appindicator3-1
 Description: A remote control software.
 
 """ % (version, get_deb_arch(), get_deb_extra_depends())
-    file = open(control_file_path, "w")
+    file = open(control_file_path, "w", encoding='utf-8')
     file.write(content)
     file.close()
 
